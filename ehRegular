@@ -1,0 +1,9 @@
+def isRegular(G):
+  node_list = list(G)
+  degree = len(list(G.neighbors(node_list[0])))
+  regular = True
+  for node in node_list:
+    if(degree != len(list(G.neighbors(node)))):
+      regular = False
+  return regular
+print (isRegular(G))
