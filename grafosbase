@@ -1,0 +1,10 @@
+import networkx as nx
+import matplotlib.pyplot as plt
+
+n = 8
+p = 0.5
+
+G = nx.fast_gnp_random_graph(n,p)
+plt.figure(1)
+nx.draw_networkx(G, pos=nx.spring_layout(G), with_labels=True)
+plt.show()
