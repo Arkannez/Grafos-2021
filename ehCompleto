@@ -1,0 +1,9 @@
+def isCompleto(G):
+  node_list = list(G)
+  max_neighbors = len(node_list) - 1
+  completo = True
+  for node in node_list:
+    if (max_neighbors != len(list(G.neighbors(node)))):
+      completo = False
+  return completo
+print (isCompleto(G))
