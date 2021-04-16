@@ -1,0 +1,14 @@
+def largura(G, initial_node):
+  visitados = []
+  para_visitar = []
+  para_visitar.append(initial_node)
+  while len(para_visitar) > 0:
+    node = para_visitar.pop(0)
+    visitados.append(node)
+    neighbors = G.neighbors(node)
+    nao_visitados = [i for i in neighbors if i not in visitados]
+    para_visitar = list(set(para_visitar).union(set(nao_visitados)))
+
+  return visitados
+
+print(largura(G,list(G)[0]))
