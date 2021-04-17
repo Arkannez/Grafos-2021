@@ -1,1 +1,38 @@
+INFINITY = 999999999
 
+def dijkstra(G,initial_node):
+  node_list = list(G)
+  infinity = [INFINITY for i in range(len(node_list))]
+  distancias = dict(zip(node_list,infinity))
+  distancias[initial_node] = 0
+
+  visitados = []
+  para_visitar = []
+  para_visitar.append(initial_node)
+
+  while len(para_visitar) > 0:
+    node = para_visitar.pop(0)
+    visitados.append(node)
+    neighbors = list(G.neighbors(node))
+    
+    nao_visitados = [i for i in neighbors if i not in visitados and i not in para_visitar]
+    
+
+    for neighbor in [i for i in neighbors if i not in visitados]:
+      if distancias[node] + 1 < distancias[neighbor]:
+        distancias[neighbor] = distancias[node] + 1
+
+
+    para_visitar = para_visitar + nao_visitados
+
+  return distancias
+
+
+def dijkstraV1(G,initial_node):
+  distancias = dijkstra(G,initial_node)
+  for node in list(G):
+    print(str(initial_node) + '->' + str(node) + ': ' + str(distancias[node]))
+
+def dijkstraV2(G,node1,node2):
+  distancias = dijkstra(G,node1)
+  print(str(node1) + '->' + str(node2) + ': ' + str(distancias[node2]))
