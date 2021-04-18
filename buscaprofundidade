@@ -16,4 +16,4 @@ def profundidade(G, initial_node):
   print('Visitados' + str(visitados))
   return visitados
 
-print(largura(G,list(G)[0]))
+print(profundidade(G,list(G)[0]))
